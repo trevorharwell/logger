@@ -5,4 +5,4 @@ Lightweight Node app to log data sent from browsers/tablets that do not support 
 
 install
 ======
-      npm install
+    npm install
