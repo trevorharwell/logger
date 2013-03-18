@@ -1,12 +1,14 @@
 app = require('express')()
+eyes = require 'eyes'
 # App Routes
 app.get '/', (req, resp) ->
   resp.end 'Send logs to /log'
 app.all '/log', (req, res) ->
   try
-    console.log JSON.parse(req.param('log'))
+    message = JSON.parse(req.param('log'))
   catch e
-    console.log req.param('log') || ''
+    message = req.param('log') || ''
+  eyes.inspect message
   # add JSONP support
   if req.query.callback
     res.type 'json'
